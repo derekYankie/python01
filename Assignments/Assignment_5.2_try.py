@@ -9,7 +9,7 @@
 #A functionn to determine smallest
 def sNum(num):
 	
-Validating User Input
+#Validating User Input
 numList =[]
 while True:
     try:
