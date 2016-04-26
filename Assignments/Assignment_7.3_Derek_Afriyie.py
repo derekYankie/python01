@@ -26,19 +26,26 @@ except:
 	print "Nope, there isn't a file with that name"
 #Searching for X-DSPAM-Confidence:
 stext = "X-DSPAM-Confidence: "
-#sets the count for "of"
-count = 0
 #sets the count of lines to 0
+count = 0
+#sets the count lines to 0
 lines = 0
+arry = []
 #Prints contents of selected file in uppercase letters
 for line in fhand:
+	line = line.rstrip().lstrip()
 	#Prints the contents of the file in upper case
 	#And remove all white spaces after each line
 	#print line.upper()#,line.rstrip()
 	#Find how many times a charater appears in a file
 	if line.find(stext) != -1:
-		found = line.find(stext)
-		locateP = stext.find("")
+		#it finds . in the line that we detected 
+		locateP = line.find('.')
+		#takes every float
+		number = float(line[locateP:])
+		#add to list
+		arry.append(number)
+		#counts amount times stext appaers
 		count = count + 1
 		
 		
@@ -46,11 +53,11 @@ for line in fhand:
 
 	#Counts the total number of lines in the text file
 	lines =lines + 1
+print "Different values assigned to X-DSPAM-Confidence:",arry
 print 'Number of Lines in file', lines
-print "Location(index) of word:", found
 print "Decimal index:", locateP
 print "Number times word appers:", count
-print "Size of word", len(stext)
+print "Size of word:", len(stext)
 #closes flie so information isn' tampered with
 fhand.close()
 

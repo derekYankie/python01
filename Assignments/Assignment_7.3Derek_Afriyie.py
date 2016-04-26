@@ -12,11 +12,11 @@
 "when you are testing below enter mbox-short.txt as the file name."
 
 #Recieve the name of user file
-fname = raw_input("Enter file name: ")
+#fname = raw_input("Enter file name: ")
 
 #Use the open method to open the file
 try:
-	fhand = open(fname, "r")
+	fhand = open('mbox-short.txt', "r")
 	#Prints contents of the file
 	#print fhand
 	#prints the first 5 characters of the file
@@ -25,7 +25,7 @@ try:
 except:
 	print "Nope, there isn't a file with that name"
 #Searching for X-DSPAM-Confidence:
-stext = "X-DSPAM-Confidence: 0"
+stext = "X-DSPAM-Confidence:"
 #Get decimals
 
 #sets the count for "of"
@@ -34,19 +34,20 @@ count = 0
 lines = 0
 #Prints contents of selected file in uppercase letters
 for line in fhand:
+	line = line.rstrip().lstrip() 
 	#Prints the contents of the file in upper case
 	#And remove all white spaces after each line
 	#print line.upper()#,line.rstrip()
 	#Find how many times a charater appears in a file
 	if line.find(stext) != -1:
-		line = line.strip() 
 		#finds "0" cahracter in file
 		locate = line.find('0')
 		#stext = line.find('0')
-		zero = 0
-		captureNUm = float(stext[locate:])
+		print 
+		captureNUm = stext[locate:]
+		print captureNUm
 		#slice all characters from the 0 onwards
-    	stext = line[0:]
+ 
     	#converts captured string number into a number
     	#number = float(stext)
 		#locateP = stext.find("")
