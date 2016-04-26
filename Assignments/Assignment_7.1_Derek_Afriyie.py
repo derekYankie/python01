@@ -32,7 +32,7 @@
 
 #Instructions:
 
-"Use the file words.txt to produce the output below."""
+"Use the file words.txt to produce the output above."""
 
 "You can download the sample data at http://www.pythonlearn.com/code/words.txt"
 
@@ -55,8 +55,10 @@ except:
 #Prints contents of selected file in uppercase letters
 for line in fhand:
 	#Prints the contents of the file in upper case
-	#And remove all white spaces after each line
+	#And puts the original text size on the preceeding line
 	print line.upper(),line.rstrip()
+	
+
 
 
 
