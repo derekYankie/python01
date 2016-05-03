@@ -12,7 +12,7 @@
 "when you are testing below enter mbox-short.txt as the file name."
 
 #Recieve the name of user file
-fname = raw_input("Enter file name: ")
+fname = raw_input("\nEnter file name: ")
 
 #Use the open method to open the file
 try:
@@ -30,7 +30,10 @@ stext = "X-DSPAM-Confidence: "
 count = 0
 #sets the count lines to 0
 lines = 0
+#creates any empty list
 arry = []
+#sets the sum of all decimals to 0
+listAvg = 0
 #Prints contents of selected file in uppercase letters
 for line in fhand:
 	line = line.rstrip().lstrip()
@@ -41,24 +44,30 @@ for line in fhand:
 	if line.find(stext) != -1:
 		#it finds . in the line that we detected 
 		locateP = line.find('.')
-		#takes every float
+		#number converts every string decimal
+		#into a float
 		number = float(line[locateP:])
-		#add to list
+		#makes a list of every string decimal 
+		#converted into a float 
 		arry.append(number)
 		#counts amount times stext appaers
 		count = count + 1
+		#getting the sum of all decimals
+		listAvg = listAvg + number
 		
 		
 		
 
 	#Counts the total number of lines in the text file
 	lines =lines + 1
-print "Different values assigned to X-DSPAM-Confidence:",arry
-print 'Number of Lines in file', lines
-print "Decimal index:", locateP
-print "Number times word appers:", count
-print "Size of word:", len(stext)
-#closes flie so information isn' tampered with
+#Divde the sum of all the dceimals by total count of all the decimals;Average 
+avg = listAvg/count
+print '\nDifferent values assigned to X-DSPAM-Confidence: \n',arry
+print '\nNumber of Lines in file:', lines
+print 'Number of values assigned to X-DSPAM-Confidence(apperances):', count
+#print "Size of word:", len(stext)
+print 'Avergae of all the deciamal values:', avg
+#closes flie so information isn't tampered with
 fhand.close()
 
 

@@ -58,8 +58,6 @@ for line in fhand:
 	#Counts the total number of lines in the text file
 	lines =lines + 1
 print 'Number of Lines in file', lines
-#print "Location(index) of word:", found
-#print "Decimal index:", locateP
 print "Number times word appers:", count
 print "Size of word:", len(stext)
 print "Decimal number found in text:", stext[0:]
