@@ -56,7 +56,8 @@ except:
 for line in fhand:
 	#Prints the contents of the file in upper case
 	#And puts the original text size on the preceeding line
-	print line.upper(),line.rstrip()
+	lines = line.strip()
+	print line.upper()
 	
 
 

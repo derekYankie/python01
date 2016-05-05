@@ -16,7 +16,7 @@ for line in fh:
 	#strips line of whitespaces and splits the words
 	#stores words in wordBank (list of words)
 	#to create random list of words
-	wordBank = line.rstrip().split()
+	wordBank = line.strip().split()
 	print wordBank
 #condition for the words inthe wordBank
 for words in wordBank:

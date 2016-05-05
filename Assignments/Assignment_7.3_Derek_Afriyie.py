@@ -64,7 +64,7 @@ for line in fhand:
 avg = listAvg/count
 print '\nDifferent values assigned to X-DSPAM-Confidence: \n',arry
 print '\nNumber of Lines in file:', lines
-print 'Number of values assigned to X-DSPAM-Confidence(apperances):', count
+print 'Number of values assigned to X-DSPAM-Confidence(apperance:', count
 #print "Size of word:", len(stext)
 print 'Avergae of all the deciamal values:', avg
 #closes flie so information isn't tampered with

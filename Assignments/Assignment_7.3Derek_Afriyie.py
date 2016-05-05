@@ -43,7 +43,7 @@ for line in fhand:
 		#finds "0" cahracter in file
 		locate = line.find('0')
 		#stext = line.find('0')
-		print 
+		#print 
 		captureNUm = stext[locate:]
 		print captureNUm
 		#slice all characters from the 0 onwards
