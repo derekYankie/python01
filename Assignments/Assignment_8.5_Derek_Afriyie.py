@@ -30,7 +30,7 @@ for lines in fhand:
 		#output all lines in the text file that begin with 'From:'
 		#print lines
 		#Remove comment block to 
-		#Show where email in the file come 
+		#Show where email in the file comes
 		#but wont display the word 'From'
 		removeFrom= lines.split('From:')
 		print removeFrom[1].strip()
@@ -38,12 +38,33 @@ for lines in fhand:
 		#print removeFrom
 	#Keeps a ruunig total of all the emails in the file
 	count =count +1
-print "\n Number of emails:", count
+#print "\n Number of emails:", count
 		
+print "There are", count, "pepole who sent messages"
+#-----------------------------------------#
+#Same thing just less lines of code & comments below:
 
+fname = raw_input("\nEnter file name:  ")
 
-
-#print "There were", count, "lines in the file with From as the first word"
+try:
+	fhand = open(fname,'r')
+#Custom error
+except:
+	print "Nope, there isn't a file with that name"
+count =0
+#Loop the lines in the opened file:
+for lines in fhand:
+	#If theres a string that starts 'From:' print the entire line
+	lines = lines.strip()
+	if  not lines.startswith('From:'): continue
+	removeFrom= lines.split('From:')
+	print removeFrom[1].strip()
+	count = count + 1
+print "Above are the myraid email adresses used to send messages.\nHow many are there? \n", count 
+	#emails = removeFrom[1].strip()
+	#print emails
+	#words = lines.split('From')?
+	#print words
 
 
 
