@@ -104,7 +104,7 @@ for lines in fhand:
 	#print 'colon index:', colon
 	#print lines
 	#print "email:", email
-	print 'Email Dictionary:', eNames
+	print 'Email Dictionaryc :', eNames
 	#words =lines.split()
 	#print words
 	#print words.index(1)
@@ -114,6 +114,14 @@ for lines in fhand:
 #content= senderlst.append(theemail)
 #print content
 		#email = dict([p.removeFrom, p.appearance]) for p in removeFrom])
+---------------------9.5 modified--------------------
+name = raw_input("Enter text here")
+#If the user input isn"t correct 
+#than asign user input to the correct file name
+if name < 1:
+	name = "mbox-short.txt"
+handle = open(name)
+eName = dict()
 
 
 

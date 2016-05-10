@@ -20,7 +20,7 @@ eNames = dict()
 #Loop the lines in the opened file:
 for lines in fhand:
 	#If theres a string that starts 'From:' print the entire line
-	if  not lines.startswith('From:'): continue
+	if  not lines.startswith('From: '): continue
 
 
 		#Remove comment block to 
@@ -50,6 +50,11 @@ for lines in fhand:
 		#this statement will keep a running total of its appearance
 		eNames[email] = eNames.get(email, 0) + 1
 print sorted([(k,v) for k, v in eNames.items()])
+#show MAX with max method
+theMax = max([(v) for k,v in eNames.items()])
+theperson = (key for key,value in eNames.items() if value==theMax)
+print "Max Sender:", eNames.get(theperson,theMax), '\n'
+#After getting max value get the key who's value is max
 
 person = None
 numMail = None
