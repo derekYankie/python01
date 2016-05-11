@@ -12,7 +12,7 @@ hand = open('mbox-short.txt')
 for line in hand:
 	#remove all white spaces on the right
 	line = line.rstrip()
-	#Looks to see the (^)beginning string matching 'From'
+	#Looks to see if 'Jan' is in the string matching
 	
 	if re.search('Jan.+', line):
 		print line
