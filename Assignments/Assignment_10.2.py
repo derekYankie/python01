@@ -14,15 +14,21 @@ if len(name) < 1 :
 	name = "mbox-short.txt"
 	fhand = open(name)
 
+timeList = list()
 for lines in fhand:
 	lines = lines.lstrip()
 	#Looking for string matching a specific criteria
-	if line.startswith('From '):
-		continue
-	#print lines
-		pos= line.find(':')
+	if lines.startswith('From '):
+		#Splits all the lines that begin with From into a list
+		line = lines.split()
+		print line[5]
+		#Stores the index location of the times in the every list
+		timeData = line[5]
+		for numbers in line:
+			line = lines.split()
+			timeList.append(line[5])
+print timeList
 
-	print 'time:', lines.split(',')
 
 	
 
