@@ -35,7 +35,7 @@ for lines in fhand:
 		#get() returns that hour, else get returns 0
 		#last increment each appearance by 1 
 		hours[time_data[0]] = hours.get(time_data[0],0)+1
-#Loops through hours dictionary and sort the keys & value by iterations
+#Loops through hours dictionary & sort the keys & value by iterations
 #key is set to lambda,anonymous function that reference the variables(k,v)
 for key, value in sorted(hours.iteritems(), key=lambda (k,v): (v,k)):
     print'Hrs:  Counts: \n', "%s:\t %s" % (key, value)

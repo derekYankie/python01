@@ -14,5 +14,5 @@ for line in hand:
 	line = line.rstrip()
 	#Looks to see if 'Jan' is in the string matching
 	
-	if re.search('\d', line):
+	if re.search('Jan.+', line):
 		print line
