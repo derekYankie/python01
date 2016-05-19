@@ -11,7 +11,7 @@
 
 
 import urllib2
-#telnet http://www.pythonlearn.com 80
+
 # Derive from Request class and override get_method to allow a HEAD request.
 class HeadRequest(urllib2.Request):
     def get_method(self):
@@ -29,9 +29,22 @@ except urllib2.HTTPError, e:
     # Prints the HTTP Status code of the response but only if there was a 
     # problem.
     print ("Error code: %s" % e.code)
-
+#HTTP request and response
 print response_headers
 
+'Dereks-MBP:Assignments derekafriyie$ python Assignment_12.py '
+'Date: Thu, 19 May 2016 11:57:12 GMT'
+'Server: Apache'
+'Last-Modified: Mon, 12 Oct 2015 14:55:29 GMT'
+'ETag: "20f7401b-1d3-521e9853a392b"'
+'Accept-Ranges: bytes'
+'Content-Length: 467'
+'Cache-Control: max-age=604800, public'
+'Access-Control-Allow-Origin: *'
+'Access-Control-Allow-Headers: origin, x-requested-with, content-type'
+'Access-Control-Allow-Methods: GET'
+'Connection: close'
+'Content-Type: text/plain'
 
 #Last-Modified:
  
@@ -42,3 +55,4 @@ print response_headers
 #Cache-Control:
  
 #Content-Type:
+

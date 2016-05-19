@@ -7,6 +7,6 @@ openurl = urllib.urlopen(url).read()
 
 soup = BeautifulSoup(openurl)
 
-tags = soup('a')
+tags = soup.find('script')
 
 print tags
