@@ -2,28 +2,34 @@
 
 
 
-import urllib2
+import urllib
 from BeautifulSoup import *
-# Derive from Request class and override get_method to allow a HEAD request.
-class HeadRequest(urllib2.Request):
-    def get_method(self):
-        return "HEAD"
 
-myurl = "http://python-data.dr-chuck.net/comments_242237.html"
-request = HeadRequest(myurl)
+import urllib
 
-if len(filename) < 1 :
-	filename = open("http://python-data.dr-chuck.net/comments_242237.html").read()
+fhand = urllib.urlopen('http://python-data.dr-chuck.net/comments_242237.html').read()
+soup = BeautifulSoup(fhand)
+
+data = soup.findAll("span", { "class":"comments" })
+numbers = [int(d.text) for d in data]
 
 
-soup = BeautifulSoup(request)
+#print numbers
+print 'Sum', sum(numbers), '\nCount', len(data)
 
-tags = soup.findall('span')
-print tags
+#if len(filename) < 1 :
+#	filename = open("http://python-data.dr-chuck.net/comments_242237.html").read()
+
+
+
+#soup = BeautifulSoup(filename)
+
+#tags = soup.findall('span')
+#print tags
 
 #You are to find all the <span> tags in the file and pull out the numbers from the tag and sum the numbers.
 #Look at the sample code provided. It shows how to find all of a certain kind of tag, loop through the tags and extract the various aspects of the tags.
-...
+#...
 # Retrieve all of the anchor tags
 #tags = soup('a')
 #for tag in tags:
