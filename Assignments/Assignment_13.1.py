@@ -6,8 +6,9 @@ import urllib
 from BeautifulSoup import *
 
 import urllib
-
+#open and read all the content in the website
 fhand = urllib.urlopen('http://python-data.dr-chuck.net/comments_242237.html').read()
+#
 soup = BeautifulSoup(fhand)
 
 data = soup.findAll("span", { "class":"comments" })
