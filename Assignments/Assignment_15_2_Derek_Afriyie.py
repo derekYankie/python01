@@ -28,11 +28,7 @@ result = json.loads(data)
 print result['comments'][0]
 print result['comments'][1]
 
-count = 0
-for comm in result['comments']['count']:
-  count = count + comm
-
-print comm
+print 'count: ', len(result['comments'])
 
 #Gets the sum
 total = sum(comm['count'] for comm in result['comments'])
