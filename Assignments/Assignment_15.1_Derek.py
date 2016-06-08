@@ -32,21 +32,21 @@ myserviceurl = 'http://maps.googleapis.com/maps/api/geocode/json?'
 while True:
 	address = raw_input('Enter location: ')
 	if len(address)< 1 : break
-
+#creating url encoded string and concatonate it the url
 	url = myserviceurl + urllib.urlencode({'sensor':'false','address':address})
 
 	print 'Retrieving', url
 	urlhandle = urllib.urlopen(url)
 	data = urlhandle.read()
 	print 'Retrieved', len(data), 'characters'
-
+#deCearalizing library of list of dictionaries
 	try: js = json.loads(str(data))
 	except: js = None
 	if 'status' not in js or js['status'] != 'OK':
 		print 'Faliure to Retrieve'
 		print data
 		continue
-
+#pulling the first result in dictionary and the first place_id in the dictionary
 	place = js["results"][0]["place_id"]
 
 	print 'Place ID: ', place
