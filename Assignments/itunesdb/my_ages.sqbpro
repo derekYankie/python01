@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/derekafriyie/Documents/pythonCodes/python01/Assignments/itunesdb/ages.db"/><window><current_tab id="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="150"/><expanded_item id="0" parent="-1"/><expanded_item id="0" parent="0"/><expanded_item id="1" parent="-1"/><expanded_item id="2" parent="-1"/><expanded_item id="3" parent="-1"/></tab_structure><tab_browse><current_table name="Ages"/><default_encoding codec=""/><browsetable_info data="AAAABAAAAB4AcwBxAGwAaQB0AGUAXwBzAGUAcQB1AGUAbgBjAGUAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////AAAACgBHAGUAbgByAGUAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////AAAACgBBAGwAYgB1AG0AAAAAAAAAAAAAAAAAAAAAAAAAAAD/////AAAACABBAGcAZQBzAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAD/////"/></tab_browse><tab_sql><sql name="SQL 1">DELETE FROM Ages;
+INSERT INTO Ages (name, age) VALUES ('Malakhy', 37);
+INSERT INTO Ages (name, age) VALUES ('Marlee', 23);
+INSERT INTO Ages (name, age) VALUES ('Timucin', 18);
+INSERT INTO Ages (name, age) VALUES ('Anneroy', 17);</sql><sql name="ages.sql">SELECT hex(name || age) AS X FROM Ages ORDER BY X
+</sql><current_tab id="1"/></tab_sql></sqlb_project>
