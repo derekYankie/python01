@@ -1,10 +1,25 @@
 #MusicalTrack
+
+import xml.etree.ElementTree as ET 
+
 import sqlite3
 
 conn = sqlite3.connect('musical_track.sqlite')
 
 cur = conn.cursor()
-print "Opened database successfully";
+
+#Empty tables befor each run
+cur.execute('''
+DROP TABLE IF EXISTS Artist''')
+
+cur.execute('''
+DROP TABLE IF EXISTS Genre''')
+
+cur.execute('''
+DROP TABLE IF EXISTS Album''')
+
+cur.execute('''
+DROP TABLE IF EXISTS Track''')
 
 #Create tables
 cur.execute('''CREATE TABLE Artist (
@@ -50,7 +65,48 @@ def lookup(d, key):
 		if child.tag == 'key' and child.text == key:
 			found =  True 
 	return None
----------------------------------
+#Parse the file into  xml
+	stuff = ET.parse(fname)
+
+all = stuff.findall('dict/dict/dict') #finding 3rd level dictionaries (where the info we are looking to import lives at)
+print 'Dict Count', len(all)
+for entry in all:
+	if( lookup(entry, 'Track ID') is None ): continue 
+
+	name = lookup(entry, 'Name')
+	artist = lookup(entry, 'Artist')
+	album = lookup(entry, 'Album')
+	genre = lookup(entry, 'Genre')
+
+	cur.execute('SELECT id FROM Artist WHERE name = ?',(artist, ))
+	artist_id = cur.fetchone()[0] 
+
+	cur.execute('''INSERT OR IGNORE INTO Genre (name)
+		VALUES(?)''', (genre,)
+		)
+	cur.execute('SELECT id FROM Genre WHERE name=?', (genre,))
+	genre_id = cur.fetchone()[0]
+
+	cur.execute('''INSERT OR IGNORE INTO Album (title, artist_id)
+		VALUES(?,?)''', (album, artist_id))
+
+	cur.execute('SELECT id FROM Album WHERE title=?', (album,))
+	album_id = cur.fetchone()[0]
+
+	cur.execute(''' INSERT OR REPLACE INTO Track
+		(title, album_id, genre_id)
+		VALUES(?,?,?)''',
+		(name, album_id, genre_id))
+
+	cur.execute('''SELECT Track.title, Artist.name, Album.title, Genre.name 
+    FROM Track JOIN Genre JOIN Album JOIN Artist 
+    ON Track.genre_id = Genre.ID and Track.album_id = Album.id 
+        AND Album.artist_id = Artist.id
+    ORDER BY Artist.name LIMIT 3''')
+
+
+	
+#---------------------------------
 # Save/commit the changes
 conn.commit()
 

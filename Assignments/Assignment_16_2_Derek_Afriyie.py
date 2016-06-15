@@ -18,13 +18,15 @@ fh = open(fname)
 for line in fh:
     if not line.startswith('From: ') : continue
     pieces = line.split()
-    org = pieces[1]
-    print org
+    email = pieces[1]
+    print email
+    at_sign = email.find('@')
+    org = email[at_index+1]
     cur.execute('SELECT count FROM Counts WHERE org = ? ', (org, ))
     row = cur.fetchone()
     if row is None:
-        cur.execute('''INSERT INTO Counts (org, count) 
-                VALUES ( ?, 1 )''', ( org, ) )
+    cur.execute('''INSERT INTO Counts (org, count) 
+        VALUES ( ?, 1 )''', ( email, ) )
     else : 
         cur.execute('UPDATE Counts SET count=count+1 WHERE org = ?', 
             (org, ))
